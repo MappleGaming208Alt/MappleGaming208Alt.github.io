@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Google Slides</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #slide-container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="slide-container">
+        <iframe src="https://docs.google.com/presentation/d/e/1ItacxceDPdlR7OT5vBixySHT-9zo6XFugdJLxavbz8s/embed" frameborder="0" width="100%" height="100%" allowfullscreen></iframe>
+    </div>
+    <script>
+        const container = document.getElementById('slide-container');
+        container.addEventListener('click', function() {
+            if (container.requestFullscreen) {
+                container.requestFullscreen();
+            } else if (container.mozRequestFullScreen) { // Firefox
+                container.mozRequestFullScreen();
+            } else if (container.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                container.webkitRequestFullscreen();
+            } else if (container.msRequestFullscreen) { // IE/Edge
+                container.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
