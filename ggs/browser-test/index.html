@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Emulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Browser Window -->
+    <div id="browser">
+        <!-- Browser Toolbar -->
+        <div id="toolbar">
+            <button id="backBtn" onclick="navigateBack()">Back</button>
+            <button id="forwardBtn" onclick="navigateForward()">Forward</button>
+            <input type="text" id="urlInput" placeholder="Enter URL..." onkeydown="checkEnter(event)" />
+            <button id="goBtn" onclick="loadPage()">Go</button>
+        </div>
+
+        <!-- Loading Screen (simulated) -->
+        <div id="loadingScreen" style="display: none;">Loading...</div>
+
+        <!-- Frame for displaying the website -->
+        <iframe id="browserFrame" src="about:blank" frameborder="0" onload="pageLoaded()"></iframe>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
