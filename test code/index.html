@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Stress Test</title>
+</head>
+<body>
+    <h1>CPU Stress Test</h1>
+    <p>Click the button to start the CPU stress test.</p>
+    <button onclick="startStressTest()">Start Stress Test</button>
+    <button onclick="stopStressTest()">Stop Stress Test</button>
+
+    <script>
+        let stressTestInterval;
+
+        function startStressTest() {
+            // Function to keep the CPU busy with infinite loops
+            stressTestInterval = setInterval(() => {
+                let start = Date.now();
+                while (Date.now() - start < 100) {
+                    // Busy work loop: keeps the CPU running at full capacity
+                    Math.random(); // Random number generation to keep CPU occupied
+                }
+            }, 0);
+            console.log("Stress Test Running...");
+        }
+
+        function stopStressTest() {
+            // Stop the test by clearing the interval
+            clearInterval(stressTestInterval);
+            console.log("Stress Test Stopped.");
+        }
+    </script>
+</body>
+</html>
