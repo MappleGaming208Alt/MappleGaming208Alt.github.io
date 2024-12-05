@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAM Usage Example</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .image-container img {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>RAM Usage Simulation</h1>
+    <p>This page will consume a large amount of memory by loading large images and creating large JavaScript objects.</p>
+    
+    <div class="image-container">
+        <!-- Simulate Large Images -->
+        <img src="https://via.placeholder.com/500x500.png?text=Large+Image+1" alt="Large Image 1">
+        <img src="https://via.placeholder.com/500x500.png?text=Large+Image+2" alt="Large Image 2">
+        <img src="https://via.placeholder.com/500x500.png?text=Large+Image+3" alt="Large Image 3">
+        <img src="https://via.placeholder.com/500x500.png?text=Large+Image+4" alt="Large Image 4">
+    </div>
+
+    <script>
+        // Create a large JavaScript object to simulate memory usage
+        let largeArray = [];
+        for (let i = 0; i < 1000000; i++) {
+            largeArray.push({ id: i, data: "This is some data to take up memory" });
+        }
+
+        // Continuously add data to the array to simulate ongoing memory usage
+        setInterval(function() {
+            largeArray.push({ id: largeArray.length, data: "More random data: " + Math.random() });
+        }, 10);
+
+        // Just to make sure there is ongoing activity
+        setInterval(function() {
+            console.log('Memory usage is increasing!');
+        }, 5000);
+    </script>
+
+</body>
+</html>
