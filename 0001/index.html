@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Web Browser Emulator</title>
+  <style>
+    /* styles.css */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .browser {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background-color: #333;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #address-bar {
+      width: 80%;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #5c6bc0;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3f51b5;
+    }
+
+    .content {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="browser">
+    <!-- Header with Address Bar -->
+    <div class="header">
+      <input id="address-bar" type="text" placeholder="Enter URL" />
+      <button onclick="loadPage()">Go</button>
+    </div>
+
+    <!-- Content Display Area (iframe will load the page) -->
+    <div class="content">
+      <iframe id="browser-frame" src="about:blank"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // script.js
+
+    function loadPage() {
+      const addressBar = document.getElementById('address-bar');
+      const url = addressBar.value.trim();
+
+      // Basic validation for URLs (you can improve this with regex)
+      if (url) {
+        // Check if the URL starts with http:// or https://, otherwise add http://
+        let finalUrl = url;
+        if (!/^https?:\/\//i.test(url)) {
+          finalUrl = 'http://' + url;
+        }
+        
+        // Load the page in the iframe
+        document.getElementById('browser-frame').src = finalUrl;
+      } else {
+        alert("Please enter a valid URL");
+      }
+    }
+  </script>
+</body>
+</html>
